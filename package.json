@@ -1,0 +1,20 @@
+{
+  "name": "libfriend-services",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Red Anton",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "libfriend-core",
+    "libfriend-api"
+  ],
+  "dependencies": {
+
+  },
+  "scripts": {
+    "build-core": "yarn workspace libfriend-core build",
+    "build-api": "yarn workspace libfriend-api build",
+    "build-all": "yarn build-core && yarn build-api"
+  }
+}
