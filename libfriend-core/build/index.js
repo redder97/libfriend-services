@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./impl"), exports);
 __exportStar(require("./services"), exports);
 __exportStar(require("./services-factory"), exports);
+__exportStar(require("./factory"), exports);

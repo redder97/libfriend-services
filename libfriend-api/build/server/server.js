@@ -9,6 +9,6 @@ const upload_routes_1 = __importDefault(require("./controllers/upload-routes"));
 const app = (0, express_1.default)();
 (0, dependencies_1.initializeContainer)();
 app.use('/api/v1', upload_routes_1.default);
-app.listen(5000, () => {
+app.listen(5001, () => {
     console.log('listening on port 5000');
 });

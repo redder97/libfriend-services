@@ -6,6 +6,6 @@ let service;
 function initializeContainer() {
     if (service)
         throw new Error('ServiceFactory has already been initialized');
-    exports.service = service = libfriend_core_1.ServicesFactory.getInstance(new libfriend_core_1.TokenizerService(), new libfriend_core_1.UploaderService());
+    exports.service = service = libfriend_core_1.ServicesFactory.getInstance();
 }
 exports.initializeContainer = initializeContainer;

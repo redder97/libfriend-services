@@ -1,3 +1,5 @@
+import { TokenizableTypes, TokenizerFactory } from './factory';
+import { PDFTokenizerService, TextTokenizerService, UploaderService } from './impl';
 import { ITokenizerService } from './services';
 import { IUploaderService } from './services';
 
@@ -5,30 +7,50 @@ export class ServicesFactory {
     private static instance: ServicesFactory
 
     private constructor(
-        private _tokenizerSerivce: ITokenizerService,
-        private _uploaderService: IUploaderService
+        private _uploaderService?: IUploaderService,
     ) {}
 
     public static getInstance(
-        tokenizerService: ITokenizerService,
-        uploaderService: IUploaderService
+        uploaderService?: IUploaderService
     ): ServicesFactory {
 
         if (this.instance) return this.instance
 
-        return new ServicesFactory(
-            tokenizerService,
+        this.instance = new ServicesFactory(
             uploaderService
         )
+
+        return this.instance
     }
 
-    get tokenizerService(): ITokenizerService {
-        return this._tokenizerSerivce
-    }
-
+    
     get uploaderService(): IUploaderService {
-        return this._uploaderService
+        return this._uploaderService ?? new UploaderService(this.tokenizerFactory)
     }
 
+    get tokenizerFactory(): TokenizerFactory {
+        const map = new Map(
+            [
+                [
+                    TokenizableTypes.PDF,
+                    this.pdfTokenizerService
+                ],
+                [
+                    TokenizableTypes.TEXT,
+                    this.textTokenizerService
+                ]
+            ]
+        )
+
+        return TokenizerFactory.getInstance(map)
+    }
+
+    get pdfTokenizerService(): ITokenizerService {
+        return new PDFTokenizerService()
+    }
+
+    get textTokenizerService(): ITokenizerService {
+        return new TextTokenizerService()
+    }
 
 }

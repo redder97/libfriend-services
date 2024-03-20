@@ -1,5 +1,5 @@
 export interface IUploadResult {
-    errors: string[]
+    errors?: string[]
 }
 
 export interface IUploaderService {
