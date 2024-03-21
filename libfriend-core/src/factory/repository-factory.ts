@@ -1,5 +1,5 @@
-import { IFileRepository } from '../repository';
+import { IFileRepository } from '../repository'
 
 export interface IRepositoryFactory {
-    fileRepository: IFileRepository
+  fileRepository: IFileRepository
 }

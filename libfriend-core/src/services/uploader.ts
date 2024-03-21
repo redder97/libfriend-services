@@ -1,4 +1,4 @@
-import { IAddFileRequest } from '../models';
+import { IAddFileRequest } from '../models'
 
 export interface IUploadResult {
   errors?: string[]
