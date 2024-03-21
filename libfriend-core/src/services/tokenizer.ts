@@ -1,3 +1,3 @@
 export interface ITokenizerService {
-    tokenize(file: File): string
+  tokenize(file: File): string
 }

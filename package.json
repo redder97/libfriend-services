@@ -9,9 +9,7 @@
     "libfriend-core",
     "libfriend-api"
   ],
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "scripts": {
     "build-core": "yarn workspace libfriend-core build",
     "build-api": "yarn workspace libfriend-api build",

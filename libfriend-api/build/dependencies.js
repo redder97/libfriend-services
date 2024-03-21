@@ -8,4 +8,4 @@ function initializeContainer() {
         throw new Error('ServiceFactory has already been initialized');
     exports.service = service = libfriend_core_1.ServicesFactory.getInstance();
 }
-exports.initializeContainer = initializeContainer;
+exports.initializeContainer = initializeContainer; 

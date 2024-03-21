@@ -81,7 +81,4 @@ web_modules/
 .cache
 
 # Nuxt.js build / generate output
-.nuxt
-dist
-
-
+*/build/

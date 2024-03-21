@@ -1,6 +1,6 @@
 import express from 'express'
-import { initializeContainer } from '../dependencies';
-import uploadRouter from './controllers/upload-routes';
+import { initializeContainer } from '../dependencies'
+import uploadRouter from './controllers/upload-routes'
 
 const app = express()
 initializeContainer()
@@ -8,6 +8,5 @@ initializeContainer()
 app.use('/api/v1', uploadRouter)
 
 app.listen(5001, () => {
-    console.log('listening on port 5000')
+  console.log('listening on port 5001')
 })
-
