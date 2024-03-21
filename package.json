@@ -7,12 +7,14 @@
   "private": true,
   "workspaces": [
     "libfriend-core",
-    "libfriend-api"
+    "libfriend-api",
+    "libfriend-data"
   ],
   "dependencies": {},
   "scripts": {
     "build-core": "yarn workspace libfriend-core build",
     "build-api": "yarn workspace libfriend-api build",
-    "build-all": "yarn build-core && yarn build-api"
+    "build-data": "yarn workspace libfriend-data build",
+    "build-all": "yarn build-core && yarn build-data && yarn build-api"
   }
 }

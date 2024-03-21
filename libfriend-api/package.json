@@ -14,6 +14,7 @@
     "express": "^4.18.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.2",
-    "libfriend-core": "1.0.0"
+    "libfriend-core": "1.0.0",
+    "libfriend-data": "1.0.0"
   }
 }

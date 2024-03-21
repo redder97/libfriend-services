@@ -1,7 +1,9 @@
+import { IAddFileRequest } from '../models';
+
 export interface IUploadResult {
   errors?: string[]
 }
 
 export interface IUploaderService {
-  upload(file: File): IUploadResult
+  upload(files: IAddFileRequest[]): Promise<IUploadResult>
 }

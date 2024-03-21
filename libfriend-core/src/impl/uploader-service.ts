@@ -1,13 +1,21 @@
-import { TokenizableTypes, TokenizerFactory } from '../factory'
+import { IRepositoryFactory, TokenizerFactory } from '../factory'
+import { IAddFileInput, IAddFileRequest } from '../models';
 import { IUploaderService, IUploadResult } from '../services/uploader'
 
 export class UploaderService implements IUploaderService {
-  constructor(private tokenizerFactory: TokenizerFactory) {}
+  constructor(
+    private repositoryFactory: IRepositoryFactory,
+    private tokenizerFactory: TokenizerFactory
+  ) {}
 
-  upload(file: File): IUploadResult {
-    this.tokenizerFactory
-      .getTokenizerService(TokenizableTypes.PDF)!
-      .tokenize(file)
+  async upload(files: IAddFileRequest[]): Promise<IUploadResult> {
+    const uploadedIds = await this.repositoryFactory.fileRepository.addFiles(files.map<IAddFileInput>((fileRequest) => ({
+      ...fileRequest,
+      ownerId: 'red',
+    })))
+
+    console.log(uploadedIds)
+
     return {}
   }
 }

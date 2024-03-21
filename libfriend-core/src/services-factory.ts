@@ -1,4 +1,4 @@
-import { TokenizableTypes, TokenizerFactory } from './factory'
+import { IRepositoryFactory, TokenizableTypes, TokenizerFactory } from './factory'
 import {
   PDFTokenizerService,
   TextTokenizerService,
@@ -10,20 +10,24 @@ import { IUploaderService } from './services'
 export class ServicesFactory {
   private static instance: ServicesFactory
 
-  private constructor(private _uploaderService?: IUploaderService) {}
+  private constructor(
+    private repositoryFactory: IRepositoryFactory,
+    private _uploaderService?: IUploaderService
+  ) {}
 
   public static getInstance(
+    repositoryFactory: IRepositoryFactory,
     uploaderService?: IUploaderService,
   ): ServicesFactory {
     if (this.instance) return this.instance
 
-    this.instance = new ServicesFactory(uploaderService)
+    this.instance = new ServicesFactory(repositoryFactory, uploaderService)
 
     return this.instance
   }
 
   get uploaderService(): IUploaderService {
-    return this._uploaderService ?? new UploaderService(this.tokenizerFactory)
+    return this._uploaderService ?? new UploaderService(this.repositoryFactory, this.tokenizerFactory)
   }
 
   get tokenizerFactory(): TokenizerFactory {
