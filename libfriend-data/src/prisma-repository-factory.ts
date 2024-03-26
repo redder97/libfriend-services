@@ -1,5 +1,5 @@
-import { IFileRepository, IRepositoryFactory } from 'libfriend-core'
-import { PrismaFileRepository } from './repository'
+import { IFileRepository, IRepositoryFactory, IUserRepository } from 'libfriend-core'
+import { PrismaFileRepository, PrismaUserRepository } from './repository'
 import { PrismaClient } from '@prisma/client'
 
 export class PrismaRepositoryFactory implements IRepositoryFactory {
@@ -16,5 +16,9 @@ export class PrismaRepositoryFactory implements IRepositoryFactory {
 
   get fileRepository(): IFileRepository {
     return new PrismaFileRepository(this.client)
+  }
+
+  get userRepository(): IUserRepository {
+    return new PrismaUserRepository(this.client)
   }
 }
