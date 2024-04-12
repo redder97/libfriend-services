@@ -5,7 +5,8 @@
   "main": "build/server.js",
   "private": true,
   "scripts": {
-    "build": "tsc && cp -r ./certs ./build/certs"
+    "build": "tsc && cp -r ./certs ./build/certs",
+    "start": "node -r ts-node/register --env-file=.env src/server/server.ts"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.6"
+    "@types/jsonwebtoken": "^9.0.6",
+    "ts-node": "^10.9.2"
   }
 }
