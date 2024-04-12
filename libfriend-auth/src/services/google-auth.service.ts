@@ -85,6 +85,6 @@ export class GoogleAuthService {
       throw Error('Error Retrieving Google Profile')
     }
 
-    return result.json()
+    return result.json() as unknown as GoogleProfile
   }
 }

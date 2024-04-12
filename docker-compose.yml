@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  libfriend-auth:
+    build:
+      context: .
+      dockerfile: ./libfriend-auth/Dockerfile
+    container_name: libfriend-auth
+    ports:
+      - 3001:3000
+    volumes:
+      - ./libfriend-auth:/home/app/libfriend-services/libfriend-auth
+      - /home/node/traction-services/libfriend-auth/node_modules
+      - /home/node/traction-services/libfriend-auth/build
+

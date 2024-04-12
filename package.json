@@ -16,7 +16,8 @@
     "build-core": "yarn workspace libfriend-core build",
     "build-api": "yarn workspace libfriend-api build",
     "build-data": "yarn workspace libfriend-data build",
-    "build-auth": "yarn workspace libfriend-auth build",
+    "build-auth": "yarn run generate && yarn build-core && yarn build-data && yarn workspace libfriend-auth build",
+    "generate": "yarn workspace libfriend-data generate",
     "build-all": "yarn build-core && yarn build-data && yarn build-auth && yarn build-api"
   }
 }

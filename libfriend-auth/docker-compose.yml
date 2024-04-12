@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  libfriend-auth:
+    build:
+      context: ../
+      dockerfile: ./libfriend-auth/Dockerfile
+    ports:
+      - 3001:3000
