@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  libfriend-api:
+    build:
+      context: ../
+      dockerfile: ./libfriend-api/Dockerfile
+    ports:
+      - 3002:5001
