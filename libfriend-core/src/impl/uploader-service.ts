@@ -9,15 +9,20 @@ export class UploaderService implements IUploaderService {
   ) {}
 
   async upload(files: IAddFileRequest[]): Promise<IUploadResult> {
-    const uploadedIds = await this.repositoryFactory.fileRepository.addFiles(
-      files.map<IAddFileInput>((fileRequest) => ({
-        ...fileRequest,
-        ownerId: 'red',
-      })),
-    )
-
-    console.log(uploadedIds)
-
-    return {}
+    try {
+      const uploadedIds = await this.repositoryFactory.fileRepository.addFiles(
+        files.map<IAddFileInput>((fileRequest) => ({
+          ...fileRequest,
+          ownerId: 'red',
+        })),
+      )
+  
+      console.log(uploadedIds)
+  
+      return {}
+    } catch (err) {
+      throw err
+    }
+   
   }
 }
